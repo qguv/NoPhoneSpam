@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="at.bitfire.nophonespam"
+<manifest xmlns:tools="http://schemas.android.com/tools"
+          package="at.bitfire.nophonespam"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -7,6 +8,7 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -21,7 +23,8 @@
 
         <activity
             android:name=".EditNumberActivity"
-            android:parentActivityName=".BlacklistActivity"/>
+            android:parentActivityName=".BlacklistActivity"
+            tools:ignore="UnusedAttribute"/>
 
         <receiver
             android:name=".CallReceiver"
