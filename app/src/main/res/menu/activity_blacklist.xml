@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/block_hidden_numbers"
+        android:checkable="true"
+        android:onClick="onBlockHiddenNumbers"
+        android:title="@string/blacklist_block_hidden_numbers"/>
+
+    <item
+        android:id="@+id/notifications"
+        android:checkable="true"
+        android:onClick="onShowNotifications"
+        android:title="@string/blacklist_show_notifications"/>
+
+    <item
+        android:title="@string/blacklist_about"
+        android:onClick="onAbout"/>
+
+</menu>

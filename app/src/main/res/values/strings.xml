@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NoPhoneSpam</string>
+
+    <!-- BlacklistActivity -->
+    <string name="blacklist_block_hidden_numbers">Block hidden numbers</string>
+    <string name="blacklist_show_notifications">Show notifications</string>
+    <string name="blacklist_about">About NoPhoneSpam</string>
+    <string name="blacklist_permissions_required">NoPhoneSpam doesn\'t have the permissions to work.</string>
+    <string name="blacklist_request_permissions">Request permissions</string>
+    <plurals name="blacklist_call_details">
+        <item quantity="one">Called at %2$s</item>
+        <item quantity="other">%1$d calls, last: %2$s</item>
+    </plurals>
+
+    <!-- EditActivity -->
+    <string name="edit_add_number">Add number</string>
+    <string name="edit_edit_number">Edit number</string>
+    <string name="edit_save">Save</string>
+    <string name="edit_cancel">Cancel</string>
+    <string name="edit_delete">Delete</string>
+    <string name="edit_name">Name</string>
+    <string name="edit_name_hint">Annoying Spammer</string>
+    <string name="edit_number">Number</string>
+    <string name="edit_number_hint">+1-555-12345</string>
+    <string name="edit_number_hints">Enter the number in +COUNTRY-NUMBER format. Use \"*\" as a wildcard for zero or more digits, and \"#\" for exactly one digit.</string>
+    <string name="edit_must_not_be_empty">must not be empty</string>
+    <string name="edit_changes_saved">Changes saved</string>
+
+    <!-- CallReceiver -->
+    <string name="receiver_notify_call_rejected">Call rejected</string>
+    <string name="receiver_notify_private_number">Private number</string>
+
+</resources>

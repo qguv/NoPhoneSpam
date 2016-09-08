@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="amber500">#ffc107</color>
+    <color name="brown400">#8d6e63</color>
+    <color name="deepOrangeA700">#dd2200</color>
+
+    <color name="colorPrimary">@color/amber500</color>
+    <color name="colorPrimaryDark">@color/brown400</color>
+    <color name="colorAccent">@color/deepOrangeA700</color>
+</resources>

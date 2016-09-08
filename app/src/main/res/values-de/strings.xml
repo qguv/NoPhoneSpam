@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- BlacklistActivity -->
+    <string name="blacklist_block_hidden_numbers">Anrufe ohne Nummer ablehnen</string>
+    <string name="blacklist_show_notifications">Benachrichtigungen anzeigen</string>
+    <string name="blacklist_about">Über NoPhoneSpam</string>
+    <string name="blacklist_permissions_required">NoPhoneSpam hat nicht die notwendigen Berechtigungen.</string>
+    <string name="blacklist_request_permissions">Berechtigungen anfordern</string>
+    <plurals name="blacklist_call_details">
+        <item quantity="one">Angerufen um %2$s</item>
+        <item quantity="other">%1$d Anrufe, zuletzt: %2$s</item>
+    </plurals>
+
+    <!-- EditActivity -->
+    <string name="edit_add_number">Nummer hinzufügen</string>
+    <string name="edit_edit_number">Nummer bearbeiten</string>
+    <string name="edit_save">Speichern</string>
+    <string name="edit_cancel">Abbrechen</string>
+    <string name="edit_delete">Löschen</string>
+    <string name="edit_name">Name</string>
+    <string name="edit_name_hint">Nerviger Spammer</string>
+    <string name="edit_number">Nummer</string>
+    <string name="edit_number_hint">+49-123-12345</string>
+    <string name="edit_number_hints">Nummernformat: +LAND-NUMMER. \"*\" kann als Platzhalter für null oder mehr Ziffern und \"#\" für genau eine Ziffer verwendet werden.</string>
+    <string name="edit_must_not_be_empty">darf nicht leer sein</string>
+    <string name="edit_changes_saved">Änderungen gespeichert</string>
+
+    <!-- CallReceiver -->
+    <string name="receiver_notify_call_rejected">Anruf abgelehnt</string>
+    <string name="receiver_notify_private_number">ohne Nummer</string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/edit_save"
+          android:icon="@drawable/ic_check_dark"
+          app:showAsAction="ifRoom"
+          android:onClick="onSave"/>
+
+    <item android:title="@string/edit_cancel"
+          android:icon="@drawable/ic_close_dark"
+          app:showAsAction="never"
+          android:onClick="onCancel"/>
+
+</menu>
