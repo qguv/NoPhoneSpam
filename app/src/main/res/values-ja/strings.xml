@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NoPhoneSpam</string>
+
+    <!-- BlacklistActivity -->
+    <string name="blacklist_block_hidden_numbers">非表示の番号をブロック</string>
+    <string name="blacklist_show_notifications">通知を表示</string>
+    <string name="blacklist_about">NoPhoneSpam について</string>
+    <string name="blacklist_permissions_required">NoPhoneSpam が動作するためのアクセス許可がありません。</string>
+    <string name="blacklist_request_permissions">アクセス許可を要求</string>
+    <plurals name="blacklist_call_details">
+        <item quantity="one">%2$s に着信</item>
+        <item quantity="other">%1$d 着信。最後: %2$s</item>
+    </plurals>
+
+    <!-- EditActivity -->
+    <string name="edit_add_number">番号を追加</string>
+    <string name="edit_edit_number">番号を編集</string>
+    <string name="edit_save">保存</string>
+    <string name="edit_cancel">キャンセル</string>
+    <string name="edit_delete">削除</string>
+    <string name="edit_name">名前</string>
+    <string name="edit_name_hint">迷惑なスパマー</string>
+    <string name="edit_number">番号</string>
+    <string name="edit_number_hint">+1-555-12345</string>
+    <string name="edit_number_hints">番号を +国-番号 の形式で入力してください。 \"*\" を 0 桁以上のワイルドカードとして \"#\" を 1 桁のワイルドカードとして使用することができます。</string>
+    <string name="edit_must_not_be_empty">空にできません</string>
+    <string name="edit_changes_saved">変更を保存しました</string>
+
+    <!-- CallReceiver -->
+    <string name="receiver_notify_call_rejected">着信を拒否しました</string>
+    <string name="receiver_notify_private_number">プライベート番号</string>
+
+</resources>
