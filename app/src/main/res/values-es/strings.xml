@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NoPhoneSpam</string>
+
+    <!-- BlacklistActivity -->
+    <string name="blacklist_block_hidden_numbers">Bloquear números ocultos</string>
+    <string name="blacklist_show_notifications">Mostrar notificaciones</string>
+    <string name="blacklist_about">Sobre NoPhoneSpam</string>
+    <string name="blacklist_permissions_required">NoPhoneSpam no tiene los permisos necesarios para funcionar.</string>
+    <string name="blacklist_request_permissions">Conceder permisos</string>
+    <plurals name="blacklist_call_details">
+        <item quantity="one">Una llamada a las %2$s</item>
+        <item quantity="other">%1$d llamadas, última a las: %2$s</item>
+    </plurals>
+
+    <!-- EditActivity -->
+    <string name="edit_add_number">Añadir número</string>
+    <string name="edit_edit_number">Editar número</string>
+    <string name="edit_save">Guardar</string>
+    <string name="edit_cancel">Cancelar</string>
+    <string name="edit_delete">Eliminar</string>
+    <string name="edit_name">Nombre</string>
+    <string name="edit_name_hint">Molesto spammer</string>
+    <string name="edit_number">Número</string>
+    <string name="edit_number_hint">+34-123-123456</string>
+    <string name="edit_number_hints">Introduce el número en el formato +PREFIJO-NÚMERO. Usa el comodín \"*\" para cero o más dígitos y \"#\" para un solo dígito.</string>
+    <string name="edit_must_not_be_empty">no debe dejarse en blanco</string>
+    <string name="edit_changes_saved">Cambios guardados</string>
+
+    <!-- CallReceiver -->
+    <string name="receiver_notify_call_rejected">Llamada rechazada</string>
+    <string name="receiver_notify_private_number">Número privado</string>
+
+</resources>
