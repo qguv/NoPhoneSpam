@@ -1,7 +1,7 @@
 
 # NoPhoneSpam
 
-Web site: https://gitlab.com/bitfireAT/NoPhoneSpam
+Web site: https://gitlab.com/bitfireAT/NoPhoneSpam/
 
 NoPhoneSpam is a simple app that allows you to
 
@@ -19,6 +19,15 @@ should be supported natively.
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/at.bitfire.nophonespam)
+
+
+## Donations
+
+[Donate using PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ZT8F5NRCBDB2C&lc=AT&item_name=NoPhoneSpam&no_shipping=1&currency_code=EUR)
+
+BitCoin: [1KSCy7RHztKuhW9fLLaUYqdwdC2iwbejZU](bitcoin:1KSCy7RHztKuhW9fLLaUYqdwdC2iwbejZU)
+
+[![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=bitfire&url=https://gitlab.com/bitfireAT/NoPhoneSpam/&title=NoPhoneSpam&category=software)
 
 
 ## License 
