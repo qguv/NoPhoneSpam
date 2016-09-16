@@ -16,7 +16,9 @@ but as a replacement for Android's missing call blocking feature.
 If you have Android 6+, you don't need this app, because call blocking
 should be supported natively.
 
-[<img src="https://f-droid.org/badge/get-it-on.png"
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+      alt="Get it on Google Play"
+      height="80">](https://play.google.com/store/apps/details?id=at.bitfire.nophonespam) [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/at.bitfire.nophonespam)
 
