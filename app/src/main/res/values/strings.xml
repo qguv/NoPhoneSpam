@@ -12,6 +12,7 @@
         <item quantity="one">Called at %2$s</item>
         <item quantity="other">%1$d calls, last: %2$s</item>
     </plurals>
+    <string name="blacklist_whitelist">Whitelist</string>
 
     <!-- EditActivity -->
     <string name="edit_add_number">Add number</string>
@@ -30,5 +31,6 @@
     <!-- CallReceiver -->
     <string name="receiver_notify_call_rejected">Call rejected</string>
     <string name="receiver_notify_private_number">Private number</string>
+    <string name="receiver_notify_unknown_caller">Unknown caller</string>
 
 </resources>

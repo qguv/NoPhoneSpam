@@ -166,6 +166,7 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.block_hidden_numbers).setChecked(settings.blockHiddenNumbers());
         menu.findItem(R.id.notifications).setChecked(settings.showNotifications());
+        menu.findItem(R.id.whitelist).setChecked(settings.whitelist());
         return true;
     }
 
@@ -175,6 +176,10 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
 
     public void onShowNotifications(MenuItem item) {
         settings.showNotifications(!item.isChecked());
+    }
+
+    public void onWhitelist(MenuItem item) {
+        settings.whitelist(!item.isChecked());
     }
 
     public void onAbout(MenuItem item) {

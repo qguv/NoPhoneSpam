@@ -61,7 +61,8 @@ public class CallReceiver extends BroadcastReceiver {
                 try {
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     Cursor c = db.query(Number._TABLE, null, "? LIKE " + Number.NUMBER, new String[] { incomingNumber }, null, null, null);
-                    if (c.moveToNext()) {
+                    boolean inList = c.moveToNext();
+                    if (inList && !settings.whitelist()) {
                         ContentValues values = new ContentValues();
                         DatabaseUtils.cursorRowToContentValues(c, values);
                         Number number = Number.fromValues(values);
@@ -73,6 +74,14 @@ public class CallReceiver extends BroadcastReceiver {
                         values.put(Number.TIMES_CALLED, number.timesCalled + 1);
                         db.update(Number._TABLE, values, Number.NUMBER + "=?", new String[]{number.number});
 
+                        BlacklistObserver.notifyUpdated();
+
+                    } else if (!inList && settings.whitelist()) {
+                        Number number = new Number();
+                        number.number = incomingNumber;
+                        number.name = context.getResources().getString(R.string.receiver_notify_unknown_caller);
+
+                        rejectCall(context, number);
                         BlacklistObserver.notifyUpdated();
                     }
                     c.close();

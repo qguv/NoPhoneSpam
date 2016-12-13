@@ -14,6 +14,12 @@
         android:title="@string/blacklist_show_notifications"/>
 
     <item
+        android:id="@+id/whitelist"
+        android:checkable="true"
+        android:onClick="onWhitelist"
+        android:title="@string/blacklist_whitelist" />
+
+    <item
         android:title="@string/blacklist_about"
         android:onClick="onAbout"/>
 
