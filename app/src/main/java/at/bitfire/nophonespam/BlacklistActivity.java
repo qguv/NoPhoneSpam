@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -52,6 +53,7 @@ import at.bitfire.nophonespam.model.Number;
 public class BlacklistActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Set<Number>>, AdapterView.OnItemClickListener {
 
     protected Settings settings;
+    CoordinatorLayout coordinatorLayout;
 
     ListView list;
     ArrayAdapter<Number> adapter;
@@ -63,6 +65,7 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
         setContentView(R.layout.activity_blacklist);
 
         settings = new Settings(this);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         list = (ListView)findViewById(R.id.numbers);
         list.setAdapter(adapter = new NumberAdapter(this));
@@ -146,7 +149,7 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
                 ok = false;
 
         if (!ok)
-            Snackbar.make(getWindow().getDecorView(), R.string.blacklist_permissions_required, Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(coordinatorLayout, R.string.blacklist_permissions_required, Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.blacklist_request_permissions, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

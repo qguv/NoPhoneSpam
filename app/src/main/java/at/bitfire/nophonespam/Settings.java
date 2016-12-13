@@ -8,7 +8,6 @@
 
 package at.bitfire.nophonespam;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
