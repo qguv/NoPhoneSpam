@@ -102,8 +102,13 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
         });
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE }, 0);
+            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[] {
+                    Manifest.permission.CALL_PHONE,
+                    Manifest.permission.READ_PHONE_STATE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            }, 0);
 
         getLoaderManager().initLoader(0, null, this);
     }
