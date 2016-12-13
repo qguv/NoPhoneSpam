@@ -5,13 +5,23 @@
         android:id="@+id/block_hidden_numbers"
         android:checkable="true"
         android:onClick="onBlockHiddenNumbers"
-        android:title="@string/blacklist_block_hidden_numbers"/>
+        android:title="@string/blacklist_block_hidden_numbers" />
 
     <item
         android:id="@+id/notifications"
         android:checkable="true"
         android:onClick="onShowNotifications"
-        android:title="@string/blacklist_show_notifications"/>
+        android:title="@string/blacklist_show_notifications" />
+
+    <item
+        android:id="@+id/import_blacklist"
+        android:onClick="onImportBlacklist"
+        android:title="@string/blacklist_import" />
+
+    <item
+        android:id="@+id/export_blacklist"
+        android:onClick="onExportBlacklist"
+        android:title="@string/blacklist_export" />
 
     <item
         android:title="@string/blacklist_about"

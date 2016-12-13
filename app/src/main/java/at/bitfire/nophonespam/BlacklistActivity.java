@@ -9,10 +9,13 @@
 package at.bitfire.nophonespam;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.LoaderManager;
 import android.content.AsyncTaskLoader;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
@@ -22,6 +25,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -38,7 +42,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -46,6 +53,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import at.bitfire.nophonespam.model.BlacklistFile;
 import at.bitfire.nophonespam.model.DbHelper;
 import at.bitfire.nophonespam.model.Number;
 
@@ -56,6 +64,10 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
     ListView list;
     ArrayAdapter<Number> adapter;
 
+
+    protected String[] fileList;
+    protected static final File basePath = Environment.getExternalStorageDirectory();
+    protected static final int DIALOG_LOAD_FILE = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +167,11 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
                     .setAction(R.string.blacklist_request_permissions, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            ActivityCompat.requestPermissions(BlacklistActivity.this, new String[] { Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE }, 0);
+                            ActivityCompat.requestPermissions(BlacklistActivity.this, new String[] {
+                                    Manifest.permission.CALL_PHONE,
+                                    Manifest.permission.READ_PHONE_STATE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                            }, 0);
                         }
                     })
                     .show();
@@ -180,6 +196,84 @@ public class BlacklistActivity extends AppCompatActivity implements LoaderManage
 
     public void onShowNotifications(MenuItem item) {
         settings.showNotifications(!item.isChecked());
+    }
+
+    public void onImportBlacklist(MenuItem item) {
+        showDialog(DIALOG_LOAD_FILE);
+    }
+
+    public Dialog onCreateDialog(int id) {
+        Dialog dialog;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        switch(id) {
+        case DIALOG_LOAD_FILE:
+
+            final int lastDot = BlacklistFile.DEFAULT_FILENAME.lastIndexOf(".");
+            final String ext = BlacklistFile.DEFAULT_FILENAME.substring(lastDot);
+            FilenameFilter filter = new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String filename) {
+                    return filename.endsWith(ext);
+                }
+            };
+
+            fileList = basePath.list(filter);
+
+            builder.setTitle(R.string.blacklist_import);
+            builder.setItems(fileList, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    commitBlacklist(new BlacklistFile(basePath, fileList[which]));
+                }
+            });
+            break;
+        }
+
+        dialog = builder.show();
+        return dialog;
+    }
+
+    public void commitBlacklist(@NonNull BlacklistFile blacklist) {
+        DbHelper dbHelper = new DbHelper(BlacklistActivity.this);
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            ContentValues values;
+            Boolean exists;
+            for (Number number : blacklist.load()) {
+
+                values = new ContentValues(4);
+                values.put(Number.NAME, number.name);
+                values.put(Number.NUMBER, Number.wildcardsViewToDb(number.number));
+
+                exists = db.query(Number._TABLE, null, Number.NUMBER + "=?", new String[]{number.number}, null, null, null).moveToNext();
+                if (exists)
+                    db.update(Number._TABLE, values, Number.NUMBER + "=?", new String[]{number.number});
+                else
+                    db.insert(Number._TABLE, null, values);
+            }
+        } finally {
+            dbHelper.close();
+        }
+
+        getLoaderManager().restartLoader(0, null, BlacklistActivity.this);
+        return;
+    }
+
+    public void onExportBlacklist(MenuItem item) {
+        BlacklistFile f = new BlacklistFile(basePath, BlacklistFile.DEFAULT_FILENAME);
+
+        List<Number> numbers = new LinkedList<>();
+        for (int i = 0; i < adapter.getCount(); i++)
+            numbers.add(adapter.getItem(i));
+
+        f.store(numbers, this);
+
+        Toast.makeText(
+                getApplicationContext(),
+                getResources().getText(R.string.blacklist_exported_to) + " " + BlacklistFile.DEFAULT_FILENAME,
+                Toast.LENGTH_LONG
+        ).show();
     }
 
     public void onAbout(MenuItem item) {
